@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Greg Land · 777 World Marathon Challenge</title>
+<meta name="description" content="Greg Land is running 7 marathons on 7 continents in 7 days at the 2027 World Marathon Challenge.">
+<meta property="og:title" content="Greg Land · 777 World Marathon Challenge">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;600;700;800&family=Outfit:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Syne:wght@600;700;800&family=Oswald:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0510;--surface:#150b22;--surface2:#1f1133;--line:#2e1c4a;--text:#f4ecff;--sub:#c3b2dd;--faint:#8a76a8;--a:#a78bfa;--a2:#b9a2fb;--head:'Sora',sans-serif;--body:'Inter',sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.6}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--head);line-height:1.1;letter-spacing:-.01em;margin:0}
+a{color:var(--a)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+.narrow{max-width:760px}.center{text-align:center;margin-left:auto;margin-right:auto}
+.muted{color:var(--sub)}
+.eyebrow{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.eyebrow.center{display:block}
+.band{padding:96px 0;position:relative}
+.band.alt{background:var(--surface)}
+.band h2{font-size:clamp(26px,4vw,40px);margin-bottom:20px}
+.band p{margin-top:0;margin-bottom:16px;color:var(--sub);font-size:17px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:18px;padding:15px 26px;background:rgba(10,5,16,0.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .logo{font-family:var(--head);font-weight:700;letter-spacing:.02em;color:var(--text);display:flex;align-items:center;gap:9px}
+nav .logo .b{display:inline-grid;place-items:center;width:30px;height:24px;border-radius:6px;background:var(--a);color:#04222e;font-size:11px;font-weight:800;letter-spacing:.06em}
+nav .nl{margin-left:auto;display:flex;gap:22px}
+nav .nl a{color:var(--sub);font-size:14px;font-weight:500}
+nav .nl a:hover{color:var(--text)}
+nav .ndon{background:var(--a);color:#04222e;padding:9px 16px;border-radius:8px;font-weight:700;font-size:13.5px}
+nav .navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:0;background:transparent;border:none;cursor:pointer}
+nav .navtoggle span{display:block;width:24px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .25s,opacity .2s}
+nav.open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+nav.open .navtoggle span:nth-child(2){opacity:0}
+nav.open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){
+  nav .navtoggle{display:flex}
+  nav .nl{position:absolute;top:100%;left:0;right:0;margin:0;flex-direction:column;gap:0;padding:6px 0;background:rgba(10,5,16,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(0,0,0,.18);display:none}
+  nav.open .nl{display:flex}
+  nav .nl a{padding:13px 26px;font-size:16px}
+  nav .ndon{margin:8px 26px;text-align:center;padding:12px 16px}
+}
+
+/* hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 26px 40px;background:radial-gradient(900px 520px at 75% 0%, rgba(167,139,250,0.3), transparent 60%), radial-gradient(700px 500px at 0% 100%, rgba(185,162,251,0.22), transparent 60%), #0a0510;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,5,16,.5),rgba(10,5,16,.82) 60%,#0a0510)}
+.hero > *{position:relative;z-index:2}
+.hero .person{font-size:clamp(20px,3.6vw,32px);letter-spacing:.12em;text-transform:uppercase;color:var(--a);font-weight:700;margin-bottom:14px;text-shadow:0 2px 16px rgba(0,0,0,.45)}
+.hero h1{color:#fff;font-size:clamp(30px,5.5vw,56px);line-height:1.08;text-shadow:0 4px 34px rgba(0,0,0,.55);width:fit-content;max-width:100%;margin-left:auto;margin-right:auto;text-align:left}
+.hero .sub{color:#f3f6fc;max-width:60ch;margin:24px auto 0;font-size:clamp(16px,2vw,20px);text-shadow:0 2px 16px rgba(0,0,0,.6)}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:34px}
+.btn-gold,.btn-fill,.btn-line{font-family:var(--body);font-weight:700;border-radius:10px;padding:14px 24px;display:inline-block;cursor:pointer;font-size:15px;border:none}
+.btn-gold{background:linear-gradient(160deg,#f5c451,#e0a82e);color:#2a1d02;box-shadow:0 10px 28px rgba(245,196,81,.32)}
+.btn-fill{background:var(--a);color:#04222e}
+.btn-line{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+.band .btn-line{color:var(--text);border-color:var(--line)}
+
+/* countdown */
+.count{display:flex;gap:14px;justify-content:center;margin-top:42px;flex-wrap:wrap}
+.count .u{background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:14px 8px;min-width:78px;backdrop-filter:blur(6px)}
+.count .u b{display:block;font-family:var(--head);font-size:34px;color:#fff;font-variant-numeric:tabular-nums;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.count .u span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#dfe7f3}
+.cd-label{margin-top:30px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#e7edf7;opacity:.85}
+
+/* hero stat strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);max-width:980px;margin:0 auto;border-top:1px solid var(--line);background:var(--surface)}
+@media(max-width:680px){.strip{grid-template-columns:repeat(2,1fr)}}
+.strip div{padding:26px 14px;text-align:center;border-right:1px solid var(--line)}
+.strip div:last-child{border-right:none}
+.strip b{display:block;font-family:var(--head);font-size:30px;color:var(--text);font-variant-numeric:tabular-nums}
+.strip span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:6px;display:block}
+
+/* three (run/recover/repeat) */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+@media(max-width:680px){.three{grid-template-columns:1fr}}
+.three div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.three b{font-family:var(--head);font-size:18px;display:block;margin-bottom:6px;color:var(--a)}
+.three span{color:var(--sub);font-size:14.5px}
+
+/* route */
+.routegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+@media(max-width:980px){.routegrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.routegrid{grid-template-columns:1fr}}
+.rc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.rc-top{display:flex;align-items:center;justify-content:space-between}
+.rc-n{font-family:var(--head);font-size:13px;font-weight:700;color:#04222e;background:var(--a);width:26px;height:26px;border-radius:7px;display:grid;place-items:center}
+.rc-flag{font-size:24px}
+.rc h3{font-size:21px}
+.rc-meta{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.rc p{font-size:13.5px;color:var(--sub);margin:4px 0 0;flex:1}
+.chip{align-self:flex-start;font-size:11.5px;font-weight:600;color:var(--a);background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.3);border-radius:30px;padding:5px 11px;margin-top:6px}
+.chip-link{cursor:pointer}
+.rc-finish{background:linear-gradient(160deg,rgba(167,139,250,0.16),var(--surface));border-color:rgba(167,139,250,0.4)}
+
+/* about */
+.about{display:grid;grid-template-columns:0.85fr 1.15fr;gap:46px;align-items:center}
+@media(max-width:820px){.about{grid-template-columns:1fr}}
+.portrait img{border-radius:18px;width:100%;aspect-ratio:4/5;object-fit:cover;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.about-txt p{font-size:16.5px}
+.about-txt .from{color:var(--a);font-weight:600}
+.astats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+@media(max-width:560px){.astats{grid-template-columns:repeat(2,1fr)}}
+.astats b{font-family:var(--head);font-size:26px;color:var(--text);display:block}
+.astats span{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+
+/* goal + tiers */
+.goal{text-align:center;margin:30px 0}
+.goal-num{font-family:var(--head);font-size:clamp(40px,8vw,72px);color:var(--a);font-variant-numeric:tabular-nums}
+.goal-cap{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+@media(max-width:680px){.tiers{grid-template-columns:repeat(2,1fr)}}
+.tier{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center}
+.tier b{font-family:var(--head);font-size:22px;color:var(--text);display:block}
+.tier span{font-size:12.5px;color:var(--sub)}
+
+/* gallery + socials */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+@media(max-width:680px){.gallery{grid-template-columns:repeat(2,1fr)}}
+.gallery figure{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:4/3;cursor:zoom-in}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.gallery figure:hover img{transform:scale(1.05)}
+.lb{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:rgba(5,8,14,.93);backdrop-filter:blur(4px);animation:lbf .2s ease}
+.lb.open{display:flex}
+@keyframes lbf{from{opacity:0}to{opacity:1}}
+.lb>img{max-width:92vw;max-height:86vh;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.6);object-fit:contain}
+.lb-close{position:absolute;top:16px;right:20px;width:46px;height:46px;border:none;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:20px;cursor:pointer;line-height:1}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border:none;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:30px;cursor:pointer;display:grid;place-items:center;line-height:1;padding-bottom:4px}
+.lb-prev{left:16px}.lb-next{right:16px}
+.lb-close:hover,.lb-nav:hover{background:rgba(255,255,255,.28)}
+.lb-count{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#fff;font-size:12.5px;letter-spacing:.12em;background:rgba(0,0,0,.45);padding:6px 14px;border-radius:20px}
+@media(max-width:600px){.lb-nav{width:44px;height:44px;font-size:24px}.lb>img{max-width:96vw}}
+.socials{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:24px 0}
+.social{background:var(--surface2);border:1px solid var(--line);border-radius:30px;padding:10px 18px;color:var(--text);font-weight:600;font-size:14px}
+.social:hover{border-color:var(--a)}
+
+/* footer */
+footer{padding:54px 26px;border-top:1px solid var(--line);text-align:center;color:var(--faint);font-size:13px;background:var(--surface)}
+footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spacing:.04em;margin-bottom:10px}
+footer .disc{max-width:680px;margin:16px auto 0;font-size:11.5px;line-height:1.6;opacity:.8}
+</style></head>
+<body>
+<nav>
+  <a class="logo" href="#top"><span class="b">777</span>Greg Land</a>
+  <button class="navtoggle" id="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nl"><a href="#challenge">The Challenge</a><a href="#route">The Route</a><a href="#about">About</a><a href="#follow">Follow</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="person" style="color:#a78bfa">Greg Land · 777</div>
+  <h1>7 Marathons<br>7 Continents<br>7 Days</h1>
+  <p class="sub">Impossible is Nothing</p>
+  <div class="cta">
+    
+    <a class="btn-line" href="#route">See the Route</a>
+  </div>
+  <div class="count" id="cd">
+    <div class="u"><b id="cd-d">—</b><span>Days</span></div>
+    <div class="u"><b id="cd-h">—</b><span>Hours</span></div>
+    <div class="u"><b id="cd-m">—</b><span>Minutes</span></div>
+    <div class="u"><b id="cd-s">—</b><span>Seconds</span></div>
+  </div>
+  <div class="cd-label">Countdown to the start line in Antarctica</div>
+</header>
+
+<div class="strip">
+  <div><b data-count>183.4</b><span>Race Miles</span></div><div><b data-count>23,000+</b><span>Miles Traveled</span></div><div><b data-count>168</b><span>Hour Race Clock</span></div><div><b data-count>292</b><span>Finishers Since 2015</span></div>
+</div>
+
+
+    <section class="band" id="challenge">
+      <div class="wrap narrow reveal">
+        <div class="eyebrow" style="color:#a78bfa">The Challenge</div>
+        <h2>The World Marathon Challenge®</h2>
+        <p>The World Marathon Challenge — the original “777” — is one of the most demanding endurance events on Earth: seven full 26.2-mile marathons, on all seven continents, inside seven consecutive days. The clock starts the moment the first marathon begins in Antarctica and never stops.</p><p>Since 2015, only 292 people on the planet have finished it. In the 10th edition — Jan 30 – Feb 5, 2027 — I'm going to do everything possible to become one of them.</p>
+        <div class="three">
+          <div><b>Run</b><span>42.2 km on every continent — from −15°F polar ice to 90°F tropical humidity.</span></div>
+          <div><b>Recover</b><span>On charter flights between continents: sleep, eat and rehydrate at 35,000 feet.</span></div>
+          <div><b>Repeat</b><span>Seven times in 168 hours, across a dozen time zones, on almost no sleep.</span></div>
+        </div>
+      </div>
+    </section>
+<section class="band alt" id="route"><div class="wrap">
+  <div class="eyebrow" style="color:#a78bfa">The Route · Jan 30 – Feb 5, 2027</div>
+  <h2>One Lap Around the Planet</h2>
+  <p class="narrow">Seven starting guns. Seven finish lines. The 2027 route races east from the Antarctic ice to the streets of Miami.</p>
+  <div class="routegrid">
+      <article class="rc reveal">
+        <div class="rc-top"><span class="rc-n">1</span><span class="rc-flag">🇦🇶</span></div>
+        <h3>Antarctica</h3>
+        <div class="rc-meta">Antarctica · Day 1</div>
+        <p>The clock starts on the ice at Ultima, deep in the polar interior — sub-zero temps, 24-hour daylight, and the loneliest marathon on Earth.</p>
+        <span class="chip">≈ -15°F · Ice &amp; Snow</span>
+      </article>
+      <article class="rc reveal">
+        <div class="rc-top"><span class="rc-n">2</span><span class="rc-flag">🇿🇦</span></div>
+        <h3>Cape Town</h3>
+        <div class="rc-meta">Africa · Day 2</div>
+        <p>Off the ice and straight into summer beneath Table Mountain — a 90°F+ temperature swing in under 24 hours.</p>
+        <span class="chip">≈ 75°F · Coastal Summer</span>
+      </article>
+      <article class="rc reveal">
+        <div class="rc-top"><span class="rc-n">3</span><span class="rc-flag">🇦🇺</span></div>
+        <h3>Perth</h3>
+        <div class="rc-meta">Australia · Day 3</div>
+        <p>Marathon three under the Western Australian sun, with the body now running on airplane sleep and stubbornness.</p>
+        <span class="chip">≈ 85°F · Dry Heat</span>
+      </article>
+      <article class="rc reveal">
+        <div class="rc-top"><span class="rc-n">4</span><span class="rc-flag">🇦🇪</span></div>
+        <h3>Dubai</h3>
+        <div class="rc-meta">Asia · Day 4</div>
+        <p>Halfway. 26.2 miles through the desert night skyline — usually run in the small hours between flights.</p>
+        <span class="chip">≈ 70°F · Desert Night</span>
+      </article>
+      <article class="rc reveal">
+        <div class="rc-top"><span class="rc-n">5</span><span class="rc-flag">🇪🇸</span></div>
+        <h3>Madrid</h3>
+        <div class="rc-meta">Europe · Day 5</div>
+        <p>Winter returns. Marathon five in the European cold, where the 777 is famously won or lost in the mind.</p>
+        <span class="chip">≈ 45°F · Winter Chill</span>
+      </article>
+      <article class="rc reveal">
+        <div class="rc-top"><span class="rc-n">6</span><span class="rc-flag">🇧🇷</span></div>
+        <h3>Fortaleza</h3>
+        <div class="rc-meta">South America · Day 6</div>
+        <p>Across the Atlantic to the Brazilian coast — equatorial heat and humidity on legs that have already covered 131 miles.</p>
+        <span class="chip">≈ 88°F · Tropical Humidity</span>
+      </article>
+      <article class="rc reveal">
+        <div class="rc-top"><span class="rc-n">7</span><span class="rc-flag">🇺🇸</span></div>
+        <h3>Miami</h3>
+        <div class="rc-meta">North America · Day 7</div>
+        <p>The final 26.2. Home soil, one last starting gun, and a finish line seven continents in the making.</p>
+        <span class="chip">≈ 80°F · The Finish</span>
+      </article>
+      <article class="rc rc-finish reveal">
+        <div class="rc-top"><span class="rc-flag">🏁</span></div>
+        <h3>183.4 Miles</h3>
+        <div class="rc-meta">in 168 Hours</div>
+        <p>Seven start lines, seven finish lines, one lap around the planet.</p>
+        <span class="chip">All seven continents</span>
+      </article></div>
+</div></section>
+
+    <section class="band alt" id="about">
+      <div class="wrap about">
+        
+        <div class="about-txt reveal">
+          <div class="eyebrow" style="color:#a78bfa">About Greg</div>
+          <h2>Who's Crazy Enough to Do This?</h2>
+          <p>Decidedly non-professional athlete who got hooked on endurance athletics. On January 30, 2027, I'll toe the start line of the World Marathon Challenge: seven marathons, seven continents, seven days. It's the hardest running adventurer I've ever committed to, and I wouldn't have it any other way.</p>
+          <p class="from">📍 Brooklyn, New York</p>
+          <div class="astats"><div><b data-count>15+</b><span>Marathons Finished</span></div><div><b data-count>3:49</b><span>Marathon PR</span></div><div><b data-count>6x</b><span>Ironman Finisher</span></div><div><b data-count>26 Days</b><span>Cycled across the USA</span></div></div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="band alt" id="follow">
+      <div class="wrap center reveal">
+        <div class="eyebrow center" style="color:#a78bfa">Follow the Journey</div>
+        <h2>Every Mile, Documented</h2>
+        <p class="narrow center muted">From early-morning training blocks to the ice in Antarctica — follow along, send encouragement, or come run a mile.</p>
+        <div class="socials"><a class="social" href="https://instagram.com/bikeusaland" target="_blank" rel="noopener">Instagram ↗</a><a class="social" href="https://connect.garmin.com/app/profile/Endurancefreek" target="_blank" rel="noopener">Garmin ↗</a></div>
+        <p class="center"><a class="btn-line" href="mailto:bikeusaland@gmail.com">✉ Say hi</a></p>
+      </div>
+    </section>
+
+<footer>
+  <div class="fl">Greg Land · 777</div>
+  <div>7 marathons. 7 continents. 7 days. · 2027 World Marathon Challenge®</div>
+  <div class="disc">Independent athlete page — not an official race site. World Marathon Challenge® and 7 Marathons 7 Continents 7 Days® are registered trademarks of Runbuk Inc. Route per the World Marathon Challenge®; host cities subject to final confirmation by race organizers.</div>
+</footer>
+
+<script>
+(function(){
+  // countdown
+  var target=new Date("2027-01-30T09:00:00Z").getTime();
+  function pad(n){return (n<10?"0":"")+n;}
+  function tick(){
+    var diff=target-Date.now();
+    var d=document;
+    if(diff<0){diff=0;}
+    var days=Math.floor(diff/864e5),h=Math.floor(diff%864e5/36e5),m=Math.floor(diff%36e5/6e4),s=Math.floor(diff%6e4/1e3);
+    var e;
+    if(e=d.getElementById("cd-d"))e.textContent=days;
+    if(e=d.getElementById("cd-h"))e.textContent=pad(h);
+    if(e=d.getElementById("cd-m"))e.textContent=pad(m);
+    if(e=d.getElementById("cd-s"))e.textContent=pad(s);
+  }
+  tick();setInterval(tick,1000);
+  // count-up for plain-number stats
+  function animate(el){
+    var raw=el.textContent.trim();
+    var m=raw.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
+    if(!m){return;}
+    var pre=m[1],numStr=m[2],post=m[3];
+    var hasComma=numStr.indexOf(",")>-1, dec=(numStr.split(".")[1]||"").length;
+    var target=parseFloat(numStr.replace(/,/g,""));
+    if(isNaN(target)||target>1e9){return;}
+    var start=null,dur=1100;
+    function fmt(n){var x=dec?n.toFixed(dec):Math.round(n).toString();if(hasComma)x=parseFloat(x).toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec});return pre+x+post;}
+    function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);var e=1-Math.pow(1-p,3);el.textContent=fmt(target*e);if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  // reveal + counters on scroll
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}})},{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(function(x){io.observe(x);});
+    var cio=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){animate(en.target);cio.unobserve(en.target);}})},{threshold:.6});
+    document.querySelectorAll("[data-count]").forEach(function(x){cio.observe(x);});
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(x){x.classList.add("in");});
+  }
+})();
+(function(){
+  var lb=document.getElementById("lb"); if(!lb) return;
+  var imgs=[].slice.call(document.querySelectorAll(".gallery img")); if(!imgs.length) return;
+  var lbImg=document.getElementById("lb-img"), lbCount=document.getElementById("lb-count"), i=0;
+  function show(n){ i=(n+imgs.length)%imgs.length; lbImg.src=imgs[i].src; if(lbCount) lbCount.textContent=(i+1)+" / "+imgs.length; }
+  function open(n){ show(n); lb.classList.add("open"); document.body.style.overflow="hidden"; }
+  function close(){ lb.classList.remove("open"); document.body.style.overflow=""; lbImg.src=""; }
+  imgs.forEach(function(im,n){ im.addEventListener("click",function(){ open(n); });
+    im.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); open(n); } }); });
+  document.getElementById("lb-close").addEventListener("click",close);
+  document.getElementById("lb-prev").addEventListener("click",function(e){ e.stopPropagation(); show(i-1); });
+  document.getElementById("lb-next").addEventListener("click",function(e){ e.stopPropagation(); show(i+1); });
+  lb.addEventListener("click",function(e){ if(e.target===lb) close(); });
+  document.addEventListener("keydown",function(e){ if(!lb.classList.contains("open")) return;
+    if(e.key==="Escape") close(); else if(e.key==="ArrowRight") show(i+1); else if(e.key==="ArrowLeft") show(i-1); });
+})();
+(function(){
+  // mobile nav: hamburger toggles the menu; closes on link tap, outside click, or Esc
+  var nav=document.querySelector("nav"), t=document.getElementById("navtoggle"); if(!nav||!t) return;
+  function set(o){ nav.classList.toggle("open",o); t.setAttribute("aria-expanded",o?"true":"false"); }
+  t.addEventListener("click",function(e){ e.stopPropagation(); set(!nav.classList.contains("open")); });
+  nav.querySelectorAll(".nl a").forEach(function(a){ a.addEventListener("click",function(){ set(false); }); });
+  document.addEventListener("click",function(e){ if(nav.classList.contains("open") && !nav.contains(e.target)) set(false); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") set(false); });
+})();
+</script>
+<script type="application/json" id="__project777">{"name":"Greg Land","tagline":"Impossible is Nothing","hometown":"Brooklyn, New York","role":"Sr. DevOps Engineer","bio":"Decidedly non-professional athlete who got hooked on endurance athletics. On January 30, 2027, I'll toe the start line of the World Marathon Challenge: seven marathons, seven continents, seven days. It's the hardest running adventurer I've ever committed to, and I wouldn't have it any other way.","why":"","funFacts":"","bioPreset":0,"challengeText":"","forCause":false,"causeName":"","causeUrl":"","causeBlurb":"","goal":"","donateUrl":"","links":[{"label":"Instagram","url":"instagram.com/bikeusaland"},{"label":"Garmin","url":"https://connect.garmin.com/app/profile/Endurancefreek"}],"email":"bikeusaland@gmail.com","domain":"","domainStatus":null,"stats":[{"value":"15+","label":"Marathons Finished"},{"value":"3:49","label":"Marathon PR"},{"value":"6x","label":"Ironman Finisher"},{"value":"26 Days","label":"Cycled across the USA"}],"photos":{"hero":null,"portrait":null,"gallery":[]},"theme":"midnight","accent":null,"font":null,"nameColor":null,"sections":{"challenge":true,"route":true,"about":true,"why":true,"cause":true,"gallery":true,"follow":true},"sectionOrder":null,"loadedFrom":null}</script>
+<script>
+/* Photos are stored ONCE, in the embedded project JSON above (never duplicated
+   inline), so the published file and the publish payload stay small. Apply them
+   to the page here. Runs last, so the gallery lightbox is already wired up. */
+(function(){try{
+  var el=document.getElementById("__project777"); if(!el) return;
+  var ph=(JSON.parse(el.textContent)||{}).photos||{};
+  if(ph.hero){ var hero=document.getElementById("top"); if(hero){ hero.style.background="url('"+ph.hero+"') center/cover no-repeat"; } }
+  if(ph.portrait){ var pt=document.getElementById("__portrait"); if(pt){ pt.src=ph.portrait; } }
+  var g=ph.gallery||[], ims=document.querySelectorAll(".gallery img[data-g]");
+  for(var k=0;k<ims.length;k++){ var i=+ims[k].getAttribute("data-g"); if(g[i]){ ims[k].src=g[i]; } }
+}catch(e){}})();
+</script>
+</body></html>
