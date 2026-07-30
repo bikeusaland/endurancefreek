@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ironman Races · Greg Land</title>
+<meta name="description" content="Greg Land is a 6x Ironman finisher, 2003-2013, including the Ford Ironman World Championship in Kona, HI.">
+<meta property="og:title" content="Ironman Races · Greg Land">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0510;--surface:#150b22;--surface2:#1f1133;--line:#2e1c4a;--text:#f4ecff;--sub:#c3b2dd;--faint:#8a76a8;--a:#a78bfa;--a2:#b9a2fb;--head:'Sora',sans-serif;--body:'Inter',sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.6}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--head);line-height:1.1;letter-spacing:-.01em;margin:0}
+a{color:var(--a)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+.narrow{max-width:760px}.center{text-align:center;margin-left:auto;margin-right:auto}
+.muted{color:var(--sub)}
+.eyebrow{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:14px;color:var(--a)}
+.eyebrow.center{display:block}
+.band{padding:80px 0;position:relative}
+.band.alt{background:var(--surface)}
+.band h2{font-size:clamp(26px,4vw,40px);margin-bottom:20px}
+.band p{margin-top:0;margin-bottom:16px;color:var(--sub);font-size:17px}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:18px;padding:15px 26px;background:rgba(10,5,16,0.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .logo{font-family:var(--head);font-weight:700;letter-spacing:.02em;color:var(--text);display:flex;align-items:center;gap:9px;text-decoration:none}
+nav .logo .b{display:inline-grid;place-items:center;width:30px;height:24px;border-radius:6px;background:var(--a);color:#04222e;font-size:11px;font-weight:800;letter-spacing:.06em}
+nav .nl{margin-left:auto;display:flex;gap:22px}
+nav .nl a{color:var(--sub);font-size:14px;font-weight:500;text-decoration:none}
+nav .nl a:hover,nav .nl a.on{color:var(--text)}
+nav .navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:0;background:transparent;border:none;cursor:pointer}
+nav .navtoggle span{display:block;width:24px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .25s,opacity .2s}
+nav.open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+nav.open .navtoggle span:nth-child(2){opacity:0}
+nav.open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){
+  nav .navtoggle{display:flex}
+  nav .nl{position:absolute;top:100%;left:0;right:0;margin:0;flex-direction:column;gap:0;padding:6px 0;background:rgba(10,5,16,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(0,0,0,.18);display:none}
+  nav.open .nl{display:flex}
+  nav .nl a{padding:13px 26px;font-size:16px}
+}
+
+/* hero */
+.hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:130px 26px 50px;background:radial-gradient(900px 520px at 75% 0%, rgba(167,139,250,0.3), transparent 60%), radial-gradient(700px 500px at 0% 100%, rgba(185,162,251,0.22), transparent 60%), #0a0510}
+.hero .eyebrow{font-size:14px}
+.hero h1{color:#fff;font-size:clamp(30px,5.5vw,54px);line-height:1.08;max-width:900px}
+.hero .sub{color:var(--sub);max-width:60ch;margin:20px auto 0;font-size:clamp(16px,2vw,19px)}
+.back{display:inline-block;margin-top:28px;font-size:14px;color:var(--faint)}
+.back:hover{color:var(--a)}
+
+.strip{display:grid;grid-template-columns:repeat(4,1fr);max-width:980px;margin:0 auto;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+@media(max-width:680px){.strip{grid-template-columns:repeat(2,1fr)}}
+.strip div{padding:26px 14px;text-align:center;border-right:1px solid var(--line)}
+.strip div:last-child{border-right:none}
+.strip b{display:block;font-family:var(--head);font-size:30px;color:var(--text)}
+.strip span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:6px;display:block}
+
+table.races{width:100%;border-collapse:collapse;margin-top:20px;font-size:14.5px}
+table.races th,table.races td{padding:12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.races th{color:var(--faint);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+table.races td.num{text-align:right;font-variant-numeric:tabular-nums;color:var(--sub);white-space:nowrap}
+table.races td.time{font-variant-numeric:tabular-nums;color:var(--text);font-weight:600;white-space:nowrap}
+table.races tr:hover td{background:rgba(167,139,250,0.05)}
+table.races .ev{font-weight:600;color:var(--text);text-decoration:none;border-bottom:1px dotted var(--faint)}
+table.races .ev:hover{color:var(--a);border-color:var(--a)}
+table.races .loc{color:var(--faint);font-size:13px}
+.kona{display:inline-block;margin-left:8px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#04222e;background:var(--a);border-radius:20px;padding:2px 9px;vertical-align:middle}
+.note{font-size:13px;color:var(--faint);margin-top:18px}
+
+footer{padding:54px 26px;border-top:1px solid var(--line);text-align:center;color:var(--faint);font-size:13px;background:var(--surface)}
+footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spacing:.04em;margin-bottom:10px}
+</style></head>
+<body>
+<nav>
+  <a class="logo" href="index.html#top"><span class="b">777</span>Greg Land</a>
+  <button class="navtoggle" id="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nl"><a href="index.html#challenge">The Challenge</a><a href="index.html#route">The Route</a><a href="index.html#about">About</a><a href="cycling.html">Cycling the USA</a><a href="ironman.html" class="on">Ironman</a><a href="index.html#follow">Follow</a></div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Ironman Triathlon</div>
+  <h1>6x Ironman Finisher</h1>
+  <p class="sub">2.4-mile swim, 112-mile bike, 26.2-mile run — six times over, from a first finish at Lake Placid in 2003 to the sport's biggest stage: the Ironman World Championship in Kona.</p>
+  <a class="back" href="index.html#top">← Back to the 777 Challenge</a>
+</header>
+
+<div class="strip">
+  <div><b>6</b><span>Finishes</span></div>
+  <div><b>2003–13</b><span>A Decade of Racing</span></div>
+  <div><b>13:32:38</b><span>Best Finish Time</span></div>
+  <div><b>Kona</b><span>World Championship</span></div>
+</div>
+
+<section class="band">
+  <div class="wrap narrow">
+    <div class="eyebrow">The Journey</div>
+    <h2>Six Finish Lines</h2>
+    <p>Six long-course triathlon finishes over eleven years — starting at Ironman Lake Placid in 2003, and building to a start at the Ford Ironman World Championship in Kona, Hawaii, in 2009.</p>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="eyebrow">Race History</div>
+    <h2>Results</h2>
+    <table class="races">
+      <thead><tr><th>Year</th><th>Event</th><th>Finish Time</th><th class="num">Overall</th><th class="num">Gender</th><th class="num">Division</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>2013</td>
+          <td><a class="ev" href="https://www.athlinks.com/event/175743/results/Event/259241/Course/1176389/Bib/35" target="_blank" rel="noopener">Midnight Man Middle Distance Triathlon</a><br><span class="loc">July 27, 2013 · Dartford, Kent, GBR</span></td>
+          <td class="time">14:49:05</td>
+          <td class="num">25 / 29</td>
+          <td class="num">22 / 25</td>
+          <td class="num">14 / 15</td>
+        </tr>
+        <tr>
+          <td>2012</td>
+          <td><a class="ev" href="https://www.athlinks.com/event/19328/results/Event/167352/Course/312146/Bib/1557" target="_blank" rel="noopener">Ironman US Championship</a><br><span class="loc">August 11, 2012 · New York, NY, USA</span></td>
+          <td class="time">13:32:38</td>
+          <td class="num">1288 / 2021</td>
+          <td class="num">1092 / 1664</td>
+          <td class="num">229 / 317</td>
+        </tr>
+        <tr>
+          <td>2009</td>
+          <td><a class="ev" href="https://www.athlinks.com/event/6568/results/Event/106266/Course/146086/Bib/1515" target="_blank" rel="noopener">Ford Ironman World Championship</a><span class="kona">Kona</span><br><span class="loc">October 10, 2009 · Kailua-Kona, HI, USA</span></td>
+          <td class="time">14:28:52</td>
+          <td class="num">1478 / 1646</td>
+          <td class="num">1086 / 1192</td>
+          <td class="num">130 / 134</td>
+        </tr>
+        <tr>
+          <td>2008</td>
+          <td><a class="ev" href="https://www.athlinks.com/event/31101/results/Event/48754/Course/74112/Bib/378" target="_blank" rel="noopener">Ironman Florida</a><br><span class="loc">November 1, 2008 · Panama City Beach, FL, USA</span></td>
+          <td class="time">13:59:21</td>
+          <td class="num">1790 / 2181</td>
+          <td class="num">1394 / 1639</td>
+          <td class="num">211 / 230</td>
+        </tr>
+        <tr>
+          <td>2004</td>
+          <td><a class="ev" href="https://www.athlinks.com/event/6566/results/Event/31970/Course/48541/Bib/205" target="_blank" rel="noopener">Ironman Lake Placid Triathlon</a><br><span class="loc">July 25, 2004 · Lake Placid, NY, USA</span></td>
+          <td class="time">14:55:37</td>
+          <td class="num">1659 / 1883</td>
+          <td class="num">1332 / 1478</td>
+          <td class="num">137 / 146</td>
+        </tr>
+        <tr>
+          <td>2003</td>
+          <td><a class="ev" href="https://www.athlinks.com/event/6566/results/Event/13535/Course/19941/Entry/8829134" target="_blank" rel="noopener">Ironman Lake Placid</a><br><span class="loc">July 27, 2003 · Lake Placid, NY, USA</span></td>
+          <td class="time">14:44:30</td>
+          <td class="num">1401 / 1671</td>
+          <td class="num">1141 / 1315</td>
+          <td class="num">124 / 137</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">Race names link to <a href="https://www.athlinks.com/athletes/96579836/results" target="_blank" rel="noopener">full results on Athlinks</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">Greg Land · 777</div>
+  <div>6x Ironman Finisher · Lake Placid to Kona, 2003–2013</div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.querySelector("nav"), t=document.getElementById("navtoggle"); if(!nav||!t) return;
+  function set(o){ nav.classList.toggle("open",o); t.setAttribute("aria-expanded",o?"true":"false"); }
+  t.addEventListener("click",function(e){ e.stopPropagation(); set(!nav.classList.contains("open")); });
+  nav.querySelectorAll(".nl a").forEach(function(a){ a.addEventListener("click",function(){ set(false); }); });
+  document.addEventListener("click",function(e){ if(nav.classList.contains("open") && !nav.contains(e.target)) set(false); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") set(false); });
+})();
+</script>
+</body></html>

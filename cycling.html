@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cycling Across the USA · Greg Land</title>
+<meta name="description" content="Greg Land's 2001 Northern Transcontinental ride: 26 days, ~3,400 miles, Everett, WA to Williamsburg, Virginia.">
+<meta property="og:title" content="Cycling Across the USA · Greg Land">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0510;--surface:#150b22;--surface2:#1f1133;--line:#2e1c4a;--text:#f4ecff;--sub:#c3b2dd;--faint:#8a76a8;--a:#a78bfa;--a2:#b9a2fb;--head:'Sora',sans-serif;--body:'Inter',sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.6}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--head);line-height:1.1;letter-spacing:-.01em;margin:0}
+a{color:var(--a)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+.narrow{max-width:760px}.center{text-align:center;margin-left:auto;margin-right:auto}
+.muted{color:var(--sub)}
+.eyebrow{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:14px;color:var(--a)}
+.eyebrow.center{display:block}
+.band{padding:80px 0;position:relative}
+.band.alt{background:var(--surface)}
+.band h2{font-size:clamp(26px,4vw,40px);margin-bottom:20px}
+.band p{margin-top:0;margin-bottom:16px;color:var(--sub);font-size:17px}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:18px;padding:15px 26px;background:rgba(10,5,16,0.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .logo{font-family:var(--head);font-weight:700;letter-spacing:.02em;color:var(--text);display:flex;align-items:center;gap:9px;text-decoration:none}
+nav .logo .b{display:inline-grid;place-items:center;width:30px;height:24px;border-radius:6px;background:var(--a);color:#04222e;font-size:11px;font-weight:800;letter-spacing:.06em}
+nav .nl{margin-left:auto;display:flex;gap:22px}
+nav .nl a{color:var(--sub);font-size:14px;font-weight:500;text-decoration:none}
+nav .nl a:hover,nav .nl a.on{color:var(--text)}
+nav .navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:0;background:transparent;border:none;cursor:pointer}
+nav .navtoggle span{display:block;width:24px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .25s,opacity .2s}
+nav.open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+nav.open .navtoggle span:nth-child(2){opacity:0}
+nav.open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){
+  nav .navtoggle{display:flex}
+  nav .nl{position:absolute;top:100%;left:0;right:0;margin:0;flex-direction:column;gap:0;padding:6px 0;background:rgba(10,5,16,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(0,0,0,.18);display:none}
+  nav.open .nl{display:flex}
+  nav .nl a{padding:13px 26px;font-size:16px}
+}
+
+/* hero */
+.hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:130px 26px 50px;background:radial-gradient(900px 520px at 75% 0%, rgba(167,139,250,0.3), transparent 60%), radial-gradient(700px 500px at 0% 100%, rgba(185,162,251,0.22), transparent 60%), #0a0510}
+.hero .eyebrow{font-size:14px}
+.hero h1{color:#fff;font-size:clamp(30px,5.5vw,54px);line-height:1.08;max-width:900px}
+.hero .sub{color:var(--sub);max-width:60ch;margin:20px auto 0;font-size:clamp(16px,2vw,19px)}
+.back{display:inline-block;margin-top:28px;font-size:14px;color:var(--faint)}
+.back:hover{color:var(--a)}
+
+/* map figure */
+.mapfig{margin:-20px auto 0;max-width:1000px;padding:0 26px}
+.mapfig img{border-radius:16px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.mapcap{text-align:center;font-size:13px;color:var(--faint);margin-top:14px}
+
+/* stat strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);max-width:980px;margin:60px auto 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+@media(max-width:680px){.strip{grid-template-columns:repeat(2,1fr)}}
+.strip div{padding:26px 14px;text-align:center;border-right:1px solid var(--line)}
+.strip div:last-child{border-right:none}
+.strip b{display:block;font-family:var(--head);font-size:30px;color:var(--text)}
+.strip span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:6px;display:block}
+
+/* route table */
+table.itin{width:100%;border-collapse:collapse;margin-top:20px;font-size:14.5px}
+table.itin th,table.itin td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
+table.itin th{color:var(--faint);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+table.itin td.num{text-align:right;font-variant-numeric:tabular-nums;color:var(--sub)}
+table.itin tr:hover td{background:rgba(167,139,250,0.05)}
+.note{font-size:13px;color:var(--faint);margin-top:18px;padding:14px 16px;background:var(--surface2);border:1px solid var(--line);border-radius:10px}
+
+footer{padding:54px 26px;border-top:1px solid var(--line);text-align:center;color:var(--faint);font-size:13px;background:var(--surface)}
+footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spacing:.04em;margin-bottom:10px}
+</style></head>
+<body>
+<nav>
+  <a class="logo" href="index.html#top"><span class="b">777</span>Greg Land</a>
+  <button class="navtoggle" id="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nl"><a href="index.html#challenge">The Challenge</a><a href="index.html#route">The Route</a><a href="index.html#about">About</a><a href="cycling.html" class="on">Cycling the USA</a><a href="ironman.html">Ironman</a><a href="index.html#follow">Follow</a></div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">2001 Northern Transcontinental</div>
+  <h1>26 Days. Coast to Coast.<br>3,400 Miles by Bike.</h1>
+  <p class="sub">Before the marathons, there was a bike ride across the entire country — Everett, Washington to Williamsburg, Virginia, self-supported, one pedal stroke at a time.</p>
+  <a class="back" href="index.html#top">← Back to the 777 Challenge</a>
+</header>
+
+<figure class="mapfig">
+  <img src="images/usa-cycling-map.jpg" alt="Hand-marked map of the United States showing the 2001 cross-country cycling route from Everett, Washington to Williamsburg, Virginia">
+  <figcaption class="mapcap">The actual route map, marked up in 2001 — still hanging on the wall today.</figcaption>
+</figure>
+
+<div class="strip">
+  <div><b>26</b><span>Days on the Road</span></div>
+  <div><b>~3,400</b><span>Total Miles</span></div>
+  <div><b>~130</b><span>Miles / Day</span></div>
+  <div><b>~96,420'</b><span>Total Climbing</span></div>
+</div>
+
+<section class="band">
+  <div class="wrap narrow">
+    <div class="eyebrow">The Route</div>
+    <h2>Everett to Williamsburg</h2>
+    <p>Starting in Everett, Washington, the route ran east across Washington, the Idaho panhandle, Montana, and Wyoming, through South Dakota and southern Minnesota, across Wisconsin, Illinois, Indiana, Ohio, West Virginia, and into Virginia — finishing in Williamsburg. Roughly 130 miles a day, every day, for 26 days straight.</p>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="eyebrow">Day by Day</div>
+    <h2>The Itinerary</h2>
+    <p class="narrow">Transcribed from the original hand-annotated wall map (see photo above). Dates are 2001.</p>
+    <table class="itin">
+      <thead><tr><th>Day</th><th>Date</th><th>Finish</th><th class="num">Miles</th><th class="num">Climb</th></tr></thead>
+      <tbody>
+        <tr><td>—</td><td>—</td><td>Start: Everett, WA</td><td class="num">—</td><td class="num">—</td></tr>
+        <tr><td>1</td><td>Sun 7/15</td><td>Wenatchee, WA</td><td class="num">124</td><td class="num">5,880'</td></tr>
+        <tr><td>2</td><td>Mon 7/16</td><td>Spokane, WA</td><td class="num">161</td><td class="num">8,420'</td></tr>
+        <tr><td>3</td><td>Tue 7/17</td><td>Sandpoint, ID</td><td class="num">80</td><td class="num">2,300'</td></tr>
+        <tr><td>4</td><td>Wed 7/18</td><td>Thompson Falls, MT</td><td class="num">80</td><td class="num">2,300'</td></tr>
+        <tr><td>5</td><td>Thu 7/19</td><td>Missoula, MT</td><td class="num">108</td><td class="num">3,120'</td></tr>
+        <tr><td>6</td><td>Fri 7/20</td><td>Butte, MT</td><td class="num">134</td><td class="num">4,850'</td></tr>
+        <tr><td>7</td><td>Sat 7/21</td><td>Bozeman, MT</td><td class="num">108</td><td class="num">1,200'</td></tr>
+        <tr><td>8</td><td>Sun 7/22</td><td>Columbus, MT</td><td class="num">108</td><td class="num">3,500'</td></tr>
+        <tr><td>9</td><td>Mon 7/23</td><td>Cody, WY</td><td class="num">118</td><td class="num">3,100'</td></tr>
+        <tr><td>10</td><td>Tue 7/24</td><td>Sheridan, WY</td><td class="num">180</td><td class="num">7,300'</td></tr>
+        <tr><td>11</td><td>Wed 7/25</td><td>Gillette, WY</td><td class="num">114</td><td class="num">4,400'</td></tr>
+        <tr><td>12</td><td>Thu 7/26</td><td>Rapid City, SD</td><td class="num">180</td><td class="num">6,300'</td></tr>
+        <tr><td>13</td><td>Fri 7/27</td><td>Mobridge, SD</td><td class="num">147</td><td class="num">3,180'</td></tr>
+        <tr><td>14</td><td>Sat 7/28</td><td>Mitchell, SD</td><td class="num">143</td><td class="num">1,690'</td></tr>
+        <tr><td>15</td><td>Sun 7/29</td><td>Worthington, MN</td><td class="num">137</td><td class="num">2,240'</td></tr>
+        <tr><td>16</td><td>Mon 7/30</td><td>Austin, MN</td><td class="num">144</td><td class="num">1,430'</td></tr>
+        <tr><td>17</td><td>Tue 7/31</td><td>Prairie du Chien, WI</td><td class="num">149</td><td class="num">3,200'</td></tr>
+        <tr><td>18</td><td>Wed 8/1</td><td>South Beloit, IL</td><td class="num">150</td><td class="num">1,200'</td></tr>
+        <tr><td>19</td><td>Thu 8/2</td><td>Kankakee, IL</td><td class="num">163</td><td class="num">1,150'</td></tr>
+        <tr><td>20</td><td>Fri 8/3</td><td>Wabash, IN</td><td class="num">138</td><td class="num">1,010'</td></tr>
+        <tr><td>21</td><td>Sat 8/4</td><td>Troy, OH</td><td class="num">138</td><td class="num">1,030'</td></tr>
+        <tr><td>22</td><td>Sun 8/5</td><td>Athens, OH</td><td class="num">162</td><td class="num">2,900'</td></tr>
+        <tr><td>23</td><td>Mon 8/6</td><td>Elkins, WV</td><td class="num">149</td><td class="num">8,600'</td></tr>
+        <tr><td>24</td><td>Tue 8/7</td><td>Harrisonburg, VA</td><td class="num">108</td><td class="num">6,000'</td></tr>
+        <tr><td>25</td><td>Wed 8/8</td><td>Ashland, VA</td><td class="num">121</td><td class="num">4,500'</td></tr>
+        <tr><td>26</td><td>Thu 8/9</td><td>Williamsburg, VA</td><td class="num">102</td><td class="num">1,080'</td></tr>
+      </tbody>
+    </table>
+    <p class="note">⚠ These day-by-day figures are transcribed from a photo of the original hand-marked wall map — small errors are likely. Get in touch if you've got the exact splits and want this corrected.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">Greg Land · 777</div>
+  <div>26 days. ~3,400 miles. One country. · 2001 Northern Transcontinental</div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.querySelector("nav"), t=document.getElementById("navtoggle"); if(!nav||!t) return;
+  function set(o){ nav.classList.toggle("open",o); t.setAttribute("aria-expanded",o?"true":"false"); }
+  t.addEventListener("click",function(e){ e.stopPropagation(); set(!nav.classList.contains("open")); });
+  nav.querySelectorAll(".nl a").forEach(function(a){ a.addEventListener("click",function(){ set(false); }); });
+  document.addEventListener("click",function(e){ if(nav.classList.contains("open") && !nav.contains(e.target)) set(false); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") set(false); });
+})();
+</script>
+</body></html>
