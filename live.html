@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Follow Live · Greg Land · 777</title>
+<meta name="description" content="Track Greg Land's progress live during the 2027 World Marathon Challenge, verified against Garmin Connect check-ins.">
+<meta property="og:title" content="Follow Live · Greg Land · 777">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0510;--surface:#150b22;--surface2:#1f1133;--line:#2e1c4a;--text:#f4ecff;--sub:#c3b2dd;--faint:#8a76a8;--a:#a78bfa;--a2:#b9a2fb;--head:'Sora',sans-serif;--body:'Inter',sans-serif;--good:#4ade80;--warn:#f5c451;--bad:#8a76a8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.6}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--head);line-height:1.1;letter-spacing:-.01em;margin:0}
+a{color:var(--a)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+.narrow{max-width:760px}.center{text-align:center;margin-left:auto;margin-right:auto}
+.muted{color:var(--sub)}
+.eyebrow{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:14px;color:var(--a)}
+.eyebrow.center{display:block}
+.band{padding:80px 0;position:relative}
+.band.alt{background:var(--surface)}
+.band h2{font-size:clamp(26px,4vw,40px);margin-bottom:20px}
+.band p{margin-top:0;margin-bottom:16px;color:var(--sub);font-size:17px}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:18px;padding:15px 26px;background:rgba(10,5,16,0.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .logo{font-family:var(--head);font-weight:700;letter-spacing:.02em;color:var(--text);display:flex;align-items:center;gap:9px;text-decoration:none}
+nav .logo .b{display:inline-grid;place-items:center;width:30px;height:24px;border-radius:6px;background:var(--a);color:#04222e;font-size:11px;font-weight:800;letter-spacing:.06em}
+nav .nl{margin-left:auto;display:flex;gap:22px}
+nav .nl a{color:var(--sub);font-size:14px;font-weight:500;text-decoration:none}
+nav .nl a:hover,nav .nl a.on{color:var(--text)}
+nav .navtoggle{display:none;margin-left:auto;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:0;background:transparent;border:none;cursor:pointer}
+nav .navtoggle span{display:block;width:24px;height:2px;margin:0 auto;background:var(--text);border-radius:2px;transition:transform .25s,opacity .2s}
+nav.open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+nav.open .navtoggle span:nth-child(2){opacity:0}
+nav.open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){
+  nav .navtoggle{display:flex}
+  nav .nl{position:absolute;top:100%;left:0;right:0;margin:0;flex-direction:column;gap:0;padding:6px 0;background:rgba(10,5,16,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(0,0,0,.18);display:none}
+  nav.open .nl{display:flex}
+  nav .nl a{padding:13px 26px;font-size:16px}
+}
+
+/* hero */
+.hero{min-height:56vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:130px 26px 50px;background:radial-gradient(900px 520px at 75% 0%, rgba(167,139,250,0.3), transparent 60%), radial-gradient(700px 500px at 0% 100%, rgba(185,162,251,0.22), transparent 60%), #0a0510}
+.hero .eyebrow{font-size:14px}
+.hero h1{color:#fff;font-size:clamp(30px,5.5vw,54px);line-height:1.08;max-width:900px}
+.hero .sub{color:var(--sub);max-width:60ch;margin:20px auto 0;font-size:clamp(16px,2vw,19px)}
+.back{display:inline-block;margin-top:28px;font-size:14px;color:var(--faint)}
+.back:hover{color:var(--a)}
+
+/* live card */
+.live-card{background:var(--surface2);border:1px solid var(--line);border-radius:20px;padding:40px 34px;margin-top:-10px}
+.lc-badge{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:30px;background:rgba(255,255,255,.06);margin-bottom:18px}
+.lc-badge .dot{width:9px;height:9px;border-radius:50%;background:var(--bad);flex:none}
+.lc-badge.live{color:var(--good);background:rgba(74,222,128,.12)}
+.lc-badge.live .dot{background:var(--good);box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 1.6s infinite}
+.lc-badge.unconfirmed{color:var(--warn);background:rgba(245,196,81,.12)}
+.lc-badge.unconfirmed .dot{background:var(--warn)}
+.lc-badge.upcoming{color:var(--sub);background:rgba(255,255,255,.05)}
+.lc-badge.done{color:var(--a);background:rgba(167,139,250,.12)}
+.lc-badge.done .dot{background:var(--a)}
+.lc-badge.stale{color:var(--faint)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}70%{box-shadow:0 0 0 10px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.live-card h2{font-size:clamp(22px,3.2vw,32px)}
+.live-card .lc-detail{color:var(--sub);margin-top:10px;font-size:16px}
+.live-card .btn-fill{display:inline-block;margin-top:26px;font-family:var(--body);font-weight:700;border-radius:10px;padding:13px 22px;background:var(--a);color:#04222e;text-decoration:none;font-size:14.5px}
+
+/* route schedule grid */
+.routegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+@media(max-width:980px){.routegrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.routegrid{grid-template-columns:1fr}}
+.rc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center;transition:border-color .2s,background .2s}
+.rc .rc-n{font-family:var(--head);font-size:12px;font-weight:700;color:var(--faint);letter-spacing:.08em;text-transform:uppercase}
+.rc .rc-flag{font-size:26px;margin:8px 0 6px}
+.rc h3{font-size:16px}
+.rc.active{border-color:var(--good);background:rgba(74,222,128,.07)}
+.rc.active .rc-n{color:var(--good)}
+
+.note{font-size:13px;color:var(--faint);margin-top:22px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+
+footer{padding:54px 26px;border-top:1px solid var(--line);text-align:center;color:var(--faint);font-size:13px;background:var(--surface)}
+footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spacing:.04em;margin-bottom:10px}
+</style></head>
+<body>
+<nav>
+  <a class="logo" href="index.html#top"><span class="b">777</span>Greg Land</a>
+  <button class="navtoggle" id="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nl"><a href="index.html#challenge">The Challenge</a><a href="index.html#route">The Route</a><a href="index.html#about">About</a><a href="cycling.html">Cycling the USA</a><a href="ironman.html">Ironman</a><a href="live.html" class="on">Follow Live</a></div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Race Week Tracker</div>
+  <h1>Follow the 777 Live</h1>
+  <p class="sub">A verified check-in, sourced from Garmin Connect — flagged “live” only when the timestamp is fresh and the location matches that day's expected stage.</p>
+  <a class="back" href="index.html#top">← Back to the 777 Challenge</a>
+</header>
+
+<section class="band">
+  <div class="wrap narrow center">
+    <div class="live-card">
+      <div class="lc-badge" id="lcBadge"><span class="dot"></span><span id="lcBadgeText">Loading…</span></div>
+      <h2 id="lcHeadline">—</h2>
+      <p class="lc-detail" id="lcDetail">—</p>
+      <a class="btn-fill" href="https://connect.garmin.com/app/profile/Endurancefreek" target="_blank" rel="noopener">View on Garmin Connect ↗</a>
+    </div>
+    <p class="note">A check-in only shows as <strong>LIVE</strong> when it's less than 72 hours old <em>and</em> the reported location matches the expected stage for that day of the race. Anything older or mismatched is shown as unconfirmed rather than hidden, so you always see the last known status.</p>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="eyebrow">Route Schedule</div>
+    <h2>Where I Should Be</h2>
+    <p class="narrow">Jan 30 – Feb 5, 2027. The current stage, if the race is underway, is highlighted below.</p>
+    <div class="routegrid" id="stopsGrid">
+      <div class="rc" data-day="1"><div class="rc-n">Day 1</div><div class="rc-flag">🇦🇶</div><h3>Antarctica</h3></div>
+      <div class="rc" data-day="2"><div class="rc-n">Day 2</div><div class="rc-flag">🇿🇦</div><h3>Cape Town</h3></div>
+      <div class="rc" data-day="3"><div class="rc-n">Day 3</div><div class="rc-flag">🇦🇺</div><h3>Perth</h3></div>
+      <div class="rc" data-day="4"><div class="rc-n">Day 4</div><div class="rc-flag">🇦🇪</div><h3>Dubai</h3></div>
+      <div class="rc" data-day="5"><div class="rc-n">Day 5</div><div class="rc-flag">🇪🇸</div><h3>Madrid</h3></div>
+      <div class="rc" data-day="6"><div class="rc-n">Day 6</div><div class="rc-flag">🇧🇷</div><h3>Fortaleza</h3></div>
+      <div class="rc" data-day="7"><div class="rc-n">Day 7</div><div class="rc-flag">🇺🇸</div><h3>Miami</h3></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">Greg Land · 777</div>
+  <div>7 marathons. 7 continents. 7 days. · 2027 World Marathon Challenge®</div>
+</footer>
+
+<!--
+  __live is the only thing you need to edit to post an update. After each
+  Garmin-synced activity during race week, replace these three fields and
+  redeploy:
+    activity   e.g. "Marathon 3 - Perth"
+    location   must contain one of the stage names above (Antarctica, Cape
+               Town, Perth, Dubai, Madrid, Fortaleza, Miami) to count as a match
+    timestamp  ISO 8601 UTC, e.g. "2027-02-01T06:40:00Z"
+-->
+<script type="application/json" id="__live">{"activity":"","location":"","timestamp":""}</script>
+<script>
+(function(){
+  var RACE_START = new Date("2027-01-30T09:00:00Z").getTime();
+  var DAY_MS = 24*3600*1000;
+  var STOPS = [
+    {day:1,place:"Antarctica"},{day:2,place:"Cape Town"},{day:3,place:"Perth"},
+    {day:4,place:"Dubai"},{day:5,place:"Madrid"},{day:6,place:"Fortaleza"},{day:7,place:"Miami"}
+  ];
+  var RACE_END = RACE_START + STOPS.length*DAY_MS;
+  var FRESH_MS = 72*3600*1000;
+
+  function currentStop(now){
+    if(now<RACE_START || now>=RACE_END) return null;
+    return STOPS[Math.floor((now-RACE_START)/DAY_MS)];
+  }
+  function locationMatches(reported, expected){
+    if(!reported || !expected) return false;
+    reported = reported.toLowerCase().trim(); expected = expected.toLowerCase().trim();
+    return reported.indexOf(expected)>-1 || expected.indexOf(reported)>-1;
+  }
+  function timeAgo(ms){
+    var hrs = ms/36e5;
+    if(hrs<1) return Math.max(1,Math.round(hrs*60))+" minutes ago";
+    if(hrs<48) return Math.round(hrs)+" hours ago";
+    return Math.round(hrs/24)+" days ago";
+  }
+  function fmtDate(ts){
+    return new Date(ts).toLocaleDateString(undefined,{month:"long",day:"numeric",year:"numeric"});
+  }
+
+  var data = {};
+  try{ data = JSON.parse(document.getElementById("__live").textContent)||{}; }catch(e){}
+
+  var now = Date.now();
+  var hasEntry = !!(data.timestamp && data.location);
+  var entryTime = hasEntry ? new Date(data.timestamp).getTime() : null;
+  var ageMs = hasEntry ? (now-entryTime) : null;
+  var isFresh = hasEntry && ageMs>=(-3600e3) && ageMs<=FRESH_MS;
+  var stop = currentStop(now);
+
+  var badge=document.getElementById("lcBadge"), badgeText=document.getElementById("lcBadgeText"),
+      headline=document.getElementById("lcHeadline"), detail=document.getElementById("lcDetail");
+
+  function setBadge(cls,text){ badge.className="lc-badge "+cls; badgeText.textContent=text; }
+
+  if(now < RACE_START){
+    setBadge("upcoming","Not Yet Racing");
+    headline.textContent = "Race starts "+fmtDate(RACE_START);
+    detail.textContent = (hasEntry && isFresh)
+      ? "Last training check-in: "+data.activity+" — "+data.location+" ("+timeAgo(ageMs)+")."
+      : "Live tracking activates once the World Marathon Challenge begins.";
+  } else if(now >= RACE_END){
+    setBadge("done","Race Complete");
+    headline.textContent = "7 Continents Down ✓";
+    detail.textContent = hasEntry
+      ? "Final check-in: "+data.activity+" — "+data.location+" ("+timeAgo(ageMs)+")."
+      : "The 2027 World Marathon Challenge has concluded.";
+  } else if(isFresh && locationMatches(data.location, stop.place)){
+    setBadge("live","Live — Day "+stop.day+" · "+stop.place);
+    headline.textContent = data.activity || ("Racing in "+stop.place);
+    detail.textContent = data.location+" · Updated "+timeAgo(ageMs);
+  } else if(isFresh){
+    setBadge("unconfirmed","Signal Unconfirmed");
+    headline.textContent = data.activity || "Last check-in";
+    detail.textContent = "Reported location (“"+data.location+"”) doesn't match today's expected stage (“"+stop.place+"”) — could be in transit between continents.";
+  } else {
+    setBadge("stale","No Recent Update");
+    headline.textContent = "Day "+stop.day+" · "+stop.place;
+    detail.textContent = hasEntry
+      ? "Last known check-in was "+timeAgo(ageMs)+" — waiting on a fresher signal."
+      : "Waiting on the first check-in for this stage.";
+  }
+
+  if(stop){
+    var el=document.querySelector('#stopsGrid [data-day="'+stop.day+'"]');
+    if(el) el.classList.add("active");
+  }
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector("nav"), t=document.getElementById("navtoggle"); if(!nav||!t) return;
+  function set(o){ nav.classList.toggle("open",o); t.setAttribute("aria-expanded",o?"true":"false"); }
+  t.addEventListener("click",function(e){ e.stopPropagation(); set(!nav.classList.contains("open")); });
+  nav.querySelectorAll(".nl a").forEach(function(a){ a.addEventListener("click",function(){ set(false); }); });
+  document.addEventListener("click",function(e){ if(nav.classList.contains("open") && !nav.contains(e.target)) set(false); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") set(false); });
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body></html>
