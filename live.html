@@ -91,6 +91,13 @@ nav.open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .lt-btn[hidden]{display:none}
 .lt-empty{margin-top:22px;color:var(--faint);font-size:15px}
 
+/* flight + livetrack: side by side while a flight is shown, stacked on narrow screens */
+.duo{display:grid;gap:24px;max-width:760px;margin:0 auto;align-items:stretch}
+.duo.with-flight{grid-template-columns:minmax(0,3fr) minmax(0,2fr);max-width:none}
+.duo.with-flight .lt-card{display:flex;flex-direction:column;justify-content:center;align-items:center}
+@media(max-width:900px){.duo.with-flight{grid-template-columns:minmax(0,1fr);max-width:760px}}
+@media(min-width:901px) and (max-width:1100px){.duo.with-flight .fl-stats{grid-template-columns:repeat(2,1fr)}}
+
 /* flight tracker */
 .fl-card{background:var(--surface2);border:1px solid var(--line);border-radius:20px;padding:40px 34px}
 .fl-card h2{font-size:clamp(22px,3.2vw,32px)}
@@ -100,7 +107,7 @@ nav.open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:560px){.fl-stats{grid-template-columns:repeat(2,1fr)}.fl-card{padding:30px 18px}.fl-map{height:300px}}
 .fl-stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 8px}
 .fl-stat .k{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:700}
-.fl-stat .v{font-family:var(--head);font-size:19px;font-weight:700;margin-top:4px}
+.fl-stat .v{font-family:var(--head);font-size:19px;font-weight:700;margin-top:4px;white-space:nowrap}
 .fl-note{margin-top:16px;color:var(--faint);font-size:13.5px}
 .fl-plane{color:var(--good);filter:drop-shadow(0 0 6px rgba(74,222,128,.6))}
 .fl-plane svg{display:block;width:30px;height:30px}
@@ -124,9 +131,10 @@ footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spac
   <a class="back" href="index.html#top">← Back to the 777 Challenge</a>
 </header>
 
-<section class="band" id="flight" hidden>
-  <div class="wrap narrow center">
-    <div class="fl-card">
+<section class="band">
+  <div class="wrap center">
+    <div class="duo" id="duo">
+    <div class="fl-card" id="flight" hidden>
       <div class="lc-badge" id="flBadge"><span class="dot"></span><span id="flBadgeText">Loading…</span></div>
       <h2 id="flTitle">In the Air</h2>
       <p class="fl-sub" id="flSub">Live position and route of my flight to the next continent.</p>
@@ -139,17 +147,13 @@ footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spac
       </div>
       <p class="fl-note" id="flNote">Flight data from ADS-B receivers via adsb.lol. Over oceans the plane can be out of receiver range for a while.</p>
     </div>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap narrow center">
     <div class="lt-card">
       <div class="eyebrow">Garmin LiveTrack</div>
       <h2>Watch Me Run Live</h2>
       <p class="muted">Real-time position, pace and distance straight from my Garmin watch while a session is active.</p>
       <a class="lt-btn" id="ltOpen" href="#" target="_blank" rel="noopener" hidden>Watch LiveTrack ↗</a>
       <p class="lt-empty" id="ltEmpty">LiveTrack isn't active right now — check back during the next run.</p>
+    </div>
     </div>
   </div>
 </section>
@@ -224,6 +228,7 @@ var FLIGHT = { id: "", label: "", until: "" };
   var POLL_MS = 15000, LANDED_STOP_MS = 30*60*1000;
   var $ = function(i){ return document.getElementById(i); };
   $("flight").hidden = false;
+  $("duo").classList.add("with-flight");
   $("flTitle").textContent = label || ("Following " + id);
 
   var map = L.map("flMap", { worldCopyJump: true, zoomControl: true, attributionControl: true }).setView([20, 0], 2);
