@@ -82,6 +82,12 @@ nav.open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 .note{font-size:13px;color:var(--faint);margin-top:22px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
 
+/* garmin livetrack embed */
+.lt-frame{position:relative;width:100%;height:min(78vh,720px);margin-top:26px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface2)}
+.lt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lt-empty{display:grid;place-items:center;height:100%;padding:24px;color:var(--faint);text-align:center}
+.lt-open{display:inline-block;margin-top:14px;font-size:14px;color:var(--a)}
+
 footer{padding:54px 26px;border-top:1px solid var(--line);text-align:center;color:var(--faint);font-size:13px;background:var(--surface)}
 footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spacing:.04em;margin-bottom:10px}
 </style></head>
@@ -113,6 +119,16 @@ footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spac
 
 <section class="band alt">
   <div class="wrap">
+    <div class="eyebrow">Garmin LiveTrack</div>
+    <h2>Live Map</h2>
+    <p class="narrow">Real-time position, pace and distance straight from my Garmin watch while a session is active.</p>
+    <div class="lt-frame" id="ltFrame"><div class="lt-empty">LiveTrack isn't active right now — check back during the next run.</div></div>
+    <a class="lt-open" id="ltOpen" href="#" target="_blank" rel="noopener" hidden>Open LiveTrack in a new tab ↗</a>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
     <div class="eyebrow">Route Schedule</div>
     <h2>Where I Should Be</h2>
     <p class="narrow">Jan 30 – Feb 5, 2027. The current stage, if the race is underway, is highlighted below.</p>
@@ -133,6 +149,26 @@ footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spac
   <div>7 marathons. 7 continents. 7 days. · 2027 World Marathon Challenge®</div>
 </footer>
 
+<!--
+  ============================================================
+  GARMIN LIVETRACK URL — paste the new LiveTrack link here each
+  time you start a session. Leave it as "" to hide the map.
+  ============================================================
+-->
+<script>
+var LIVETRACK_URL = "https://livetrack.garmin.com/session/1ba82394-9272-895f-9f79-44c514420600/token/186EB076352D7D0D3362079D482A4DF";
+</script>
+<script>
+(function(){
+  var url = (typeof LIVETRACK_URL==="string" ? LIVETRACK_URL : "").trim();
+  if(!/^https:\/\/livetrack\.garmin\.com\//.test(url)) return;
+  var box=document.getElementById("ltFrame"), open=document.getElementById("ltOpen");
+  var f=document.createElement("iframe");
+  f.src=url; f.title="Garmin LiveTrack"; f.loading="lazy"; f.allow="fullscreen";
+  box.innerHTML=""; box.appendChild(f);
+  open.href=url; open.hidden=false;
+})();
+</script>
 <!--
   __live is the only thing you need to edit to post an update. After each
   Garmin-synced activity during race week, replace these three fields and
