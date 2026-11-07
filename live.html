@@ -108,14 +108,19 @@ nav.open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .fl-stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 8px}
 .fl-stat .k{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:700}
 .fl-stat .v{font-family:var(--head);font-size:19px;font-weight:700;margin-top:4px;white-space:nowrap}
-.fl-card .btn-fill{display:inline-block;margin-top:20px;font-family:var(--body);font-weight:700;border-radius:10px;padding:13px 22px;background:var(--a);color:#04222e;text-decoration:none;font-size:14.5px}
-.fl-card .btn-fill:hover{background:var(--a2)}
 .fl-note{margin-top:16px;color:var(--faint);font-size:13.5px}
 .fl-plane{color:var(--good);filter:drop-shadow(0 0 6px rgba(74,222,128,.6))}
 .fl-plane svg{display:block;width:30px;height:30px}
 .leaflet-container{font-family:var(--body)}
 .leaflet-control-attribution{background:rgba(10,5,16,.75)!important;color:var(--faint)!important}
 .leaflet-control-attribution a{color:var(--sub)!important}
+
+/* flightradar24 embed */
+.fr-card{background:var(--surface2);border:1px solid var(--line);border-radius:20px;padding:40px 34px}
+.fr-card h2{font-size:clamp(22px,3.2vw,32px)}
+.fr-frame{width:100%;height:560px;margin-top:26px;border:1px solid var(--line);border-radius:14px;background:#0d0817;display:block}
+.fr-card .btn-fill{display:inline-block;margin-top:20px;font-family:var(--body);font-weight:700;border-radius:10px;padding:13px 22px;background:var(--a);color:#04222e;text-decoration:none;font-size:14.5px}
+@media(max-width:560px){.fr-card{padding:30px 18px}.fr-frame{height:440px}}
 
 footer{padding:54px 26px;border-top:1px solid var(--line);text-align:center;color:var(--faint);font-size:13px;background:var(--surface)}
 footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spacing:.04em;margin-bottom:10px}
@@ -124,7 +129,7 @@ footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spac
 <nav>
   <a class="logo" href="index.html#top"><span class="b">777</span>Greg Land</a>
   <button class="navtoggle" id="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  <div class="nl"><a href="index.html#challenge">The Challenge</a><a href="index.html#route">The Route</a><a href="index.html#about">About</a><a href="cycling.html">Cycling the USA</a><a href="ironman.html">Ironman</a><a href="live.html?flight=ACY9010" class="on">Follow Live</a></div>
+  <div class="nl"><a href="index.html#challenge">The Challenge</a><a href="index.html#route">The Route</a><a href="index.html#about">About</a><a href="cycling.html">Cycling the USA</a><a href="ironman.html">Ironman</a><a href="live.html?flight=DL1778" class="on">Follow Live</a></div>
 </nav>
 
 <header class="hero">
@@ -147,7 +152,6 @@ footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spac
         <div class="fl-stat"><div class="k">Heading</div><div class="v" id="flHeading">—</div></div>
         <div class="fl-stat"><div class="k">Last seen</div><div class="v" id="flSeen">—</div></div>
       </div>
-      <a class="btn-fill" id="flFr24" href="https://www.flightradar24.com/" target="_blank" rel="noopener">View on Flightradar24 ↗</a>
       <p class="fl-note" id="flNote">Flight data from ADS-B receivers via adsb.lol. Over oceans the plane can be out of receiver range for a while.</p>
     </div>
     <div class="lt-card">
@@ -157,6 +161,17 @@ footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spac
       <a class="lt-btn" id="ltOpen" href="#" target="_blank" rel="noopener" hidden>Watch LiveTrack ↗</a>
       <p class="lt-empty" id="ltEmpty">LiveTrack isn't active right now — check back during the next run.</p>
     </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap center">
+    <div class="fr-card">
+      <div class="eyebrow">Flightradar24</div>
+      <h2>ACY9010 on Flightradar24</h2>
+      <iframe class="fr-frame" src="https://www.flightradar24.com/ACY9010" title="Flightradar24 — ACY9010" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <a class="btn-fill" href="https://www.flightradar24.com/ACY9010" target="_blank" rel="noopener">Open on Flightradar24 ↗</a>
     </div>
   </div>
 </section>
@@ -201,7 +216,7 @@ footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spac
   ============================================================
 -->
 <script>
-var LIVETRACK_URL = "https://livetrack.garmin.com/session/9f829493-c836-8f9e-b21c-a1ec20dd8400/token/E5B4ECDEEFB973F893D63FD45FEC437C";
+var LIVETRACK_URL = "https://livetrack.garmin.com/session/dd60996c-3753-83a6-b0bd-6f14da115c00/token/ACAB25A1AAD6A35DF24F728EE951A4";
 </script>
 <!--
   ============================================================
@@ -215,7 +230,7 @@ var LIVETRACK_URL = "https://livetrack.garmin.com/session/9f829493-c836-8f9e-b21
   ============================================================
 -->
 <script>
-var FLIGHT = { id: "ACY9010", label: "", until: "" };
+var FLIGHT = { id: "DL1778", label: "", until: "" };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
@@ -233,7 +248,6 @@ var FLIGHT = { id: "ACY9010", label: "", until: "" };
   $("flight").hidden = false;
   $("duo").classList.add("with-flight");
   $("flTitle").textContent = label || ("Following " + id);
-  $("flFr24").href = "https://www.flightradar24.com/" + encodeURIComponent(id);
 
   var map = L.map("flMap", { worldCopyJump: true, zoomControl: true, attributionControl: true }).setView([20, 0], 2);
   var ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/";
