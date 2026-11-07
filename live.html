@@ -108,6 +108,8 @@ nav.open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .fl-stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 8px}
 .fl-stat .k{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:700}
 .fl-stat .v{font-family:var(--head);font-size:19px;font-weight:700;margin-top:4px;white-space:nowrap}
+.fl-card .btn-fill{display:inline-block;margin-top:20px;font-family:var(--body);font-weight:700;border-radius:10px;padding:13px 22px;background:var(--a);color:#04222e;text-decoration:none;font-size:14.5px}
+.fl-card .btn-fill:hover{background:var(--a2)}
 .fl-note{margin-top:16px;color:var(--faint);font-size:13.5px}
 .fl-plane{color:var(--good);filter:drop-shadow(0 0 6px rgba(74,222,128,.6))}
 .fl-plane svg{display:block;width:30px;height:30px}
@@ -122,7 +124,7 @@ footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spac
 <nav>
   <a class="logo" href="index.html#top"><span class="b">777</span>Greg Land</a>
   <button class="navtoggle" id="navtoggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  <div class="nl"><a href="index.html#challenge">The Challenge</a><a href="index.html#route">The Route</a><a href="index.html#about">About</a><a href="cycling.html">Cycling the USA</a><a href="ironman.html">Ironman</a><a href="live.html?flight=DL1778" class="on">Follow Live</a></div>
+  <div class="nl"><a href="index.html#challenge">The Challenge</a><a href="index.html#route">The Route</a><a href="index.html#about">About</a><a href="cycling.html">Cycling the USA</a><a href="ironman.html">Ironman</a><a href="live.html?flight=ACY9010" class="on">Follow Live</a></div>
 </nav>
 
 <header class="hero">
@@ -145,6 +147,7 @@ footer .fl{font-family:var(--head);font-weight:700;color:var(--text);letter-spac
         <div class="fl-stat"><div class="k">Heading</div><div class="v" id="flHeading">—</div></div>
         <div class="fl-stat"><div class="k">Last seen</div><div class="v" id="flSeen">—</div></div>
       </div>
+      <a class="btn-fill" id="flFr24" href="https://www.flightradar24.com/" target="_blank" rel="noopener">View on Flightradar24 ↗</a>
       <p class="fl-note" id="flNote">Flight data from ADS-B receivers via adsb.lol. Over oceans the plane can be out of receiver range for a while.</p>
     </div>
     <div class="lt-card">
@@ -212,7 +215,7 @@ var LIVETRACK_URL = "https://livetrack.garmin.com/session/9f829493-c836-8f9e-b21
   ============================================================
 -->
 <script>
-var FLIGHT = { id: "DL1778", label: "", until: "" };
+var FLIGHT = { id: "ACY9010", label: "", until: "" };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
@@ -230,6 +233,7 @@ var FLIGHT = { id: "DL1778", label: "", until: "" };
   $("flight").hidden = false;
   $("duo").classList.add("with-flight");
   $("flTitle").textContent = label || ("Following " + id);
+  $("flFr24").href = "https://www.flightradar24.com/" + encodeURIComponent(id);
 
   var map = L.map("flMap", { worldCopyJump: true, zoomControl: true, attributionControl: true }).setView([20, 0], 2);
   var ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/";
